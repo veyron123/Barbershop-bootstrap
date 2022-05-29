@@ -18,3 +18,19 @@ end
 get '/visit' do 
 	erb :visit
 end
+
+get '/visit' do 
+	erb :visit
+end
+
+post '/visit' do 
+
+	@name = params[:username]
+	@phone = params[:phone]
+	@date = params[:date]
+
+
+	erb :visit
+end
+
+
