@@ -25,9 +25,12 @@ end
 
 post '/visit' do 
 
-	@name = params[:username]
+	@name = params[:username].capitalize
 	@phone = params[:phone]
 	@date = params[:date]
+	@time = params[:time]
+
+	# @title = "Приветствуем Вас!"
 
 
 	erb :visit
