@@ -76,12 +76,14 @@ post '/visit' do
 	hash = {:name => "Enter name", 
 	:phone => "Enter phone",
 	:date => "Choose date and time",
+	:time => "Сhoose time"
 	
 }
 
 	hash.each do |key,value|
 		if params[key] == ""
 			@error = hash[key]
+			return erb :visit
 		end
 		
 	end
