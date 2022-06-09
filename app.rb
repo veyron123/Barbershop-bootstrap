@@ -38,7 +38,9 @@ post "/" do
 end
 
 get '/about' do 
+	@error = "something"
 	erb :about
+	
 end
 
 get '/contacts' do 	
@@ -69,8 +71,15 @@ post '/visit' do
 	@date = params[:date]
 	@time = params[:time]
 	@barber = params[:barber]
+	@color = params[:color]
 
-	@message = " Дорогой #{@name} мы ждем Вас в #{@time} #{@date}, ваш парикмахер #{@barber}"
+	if 
+		@name == '' 
+		@error = "Enter name"
+		return erb :visit
+	end
+
+	@message = "Дорогой #{@name} мы ждем Вас в #{@time} #{@date}, ваш парикмахер #{@barber} ваш цвет #{@color}"
 
 	# @title = "Приветствуем Вас!"
  
