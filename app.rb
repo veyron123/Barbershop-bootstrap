@@ -73,10 +73,17 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
-	if 
-		@name == '' 
-		@error = "Enter name"
-		return erb :visit
+	hash = {:name => "Enter name", 
+	:phone => "Enter phone",
+	:date => "Choose date and time",
+	
+}
+
+	hash.each do |key,value|
+		if params[key] == ""
+			@error = hash[key]
+		end
+		
 	end
 
 	@message = "Дорогой #{@name} мы ждем Вас в #{@time} #{@date}, ваш парикмахер #{@barber} ваш цвет #{@color}"
